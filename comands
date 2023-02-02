@@ -1,0 +1,154 @@
+
+
+video:
+https://www.youtube.com/watch?v=mkW2UefXEvI&t=263s
+
+    1  nmcli connection mod System\ eth1 ipv4.method manual
+    2  curl http://repo.eight.example.com
+    3  dnf config-manager
+    4  dnf config-manager --add-repo http://repo.eight.example.com/BaseOS
+    5  cd /etc/yum.repos.d/
+    6  ll
+    7  cat repo.eight.example.com_BaseOS.repo 
+    8  dnf repolist 
+    9  dnf config-manager --add-repo http://repo.eight.example.com/AppStream
+   10  dnf repolist
+   11  systemctl status chronyd.service 
+   12  timdatectl 
+   13  timedatectl list-timezones | grep America
+   14  timedatectl set-timezone America/Sao_Paulo
+   15  chronyc makestep
+   16  timedatectl set-ntp true
+   17  timedatectl
+   18  nmcli con show 
+   19  nmcli con show eth0
+   20  nmcli connection show eth0 
+   21  nmcli connection show eth1
+   22  nmcli connection sh System\ eth0
+   23  nmcli connection show eth1
+   24  nmcli connection show System\ eth1
+   25  nmcli con mod System\ eth1 +ipv4.addresses 10.0.0.6/24 ipv4.method manual
+   26  nmcli con up System\ eth1
+   27  nmcli con mod System\ eth1 +ipv6.addresses  fd01::100/64 
+   28  nmcli con mod System\ eth1 +ipv6.addresses fd01::100/64 
+   29  nmcli con mod System\ eth1 +ipv4.addresses 10.0.0.6/24 ipv4.method auto
+   30  nmcli con mod System\ eth1 +ipv6.addresses fd01::100/64 
+   31  nmcli con up System\ eth1
+   32  nmcli con mod System\ eth1 +ipv6.addresses fd01::100/64 
+   33  nmcli con mod System\ eth1 ipv6.method manual
+   34  nmcli con mod System\ eth1 +ipv6.addresses fd01::100/64 ipv6.method manual
+   35  nmcli connection up System\ eth1
+   36  sysct 
+   37  sysctl net.ipv4.ip_forward
+   38  echo "net.ipv4.ip_forward = 1" > /etc/sysctl.conf 
+   39  sysctl net.ipv6.conf.all.forwarding 
+   40  echo "net.ipv6.conf.all.forwarding = 1" >> /etc/sysctl.conf 
+   41  sysctl -p
+   42  find /etc/ -name defaults
+   43  find /etc/ -name defaults*
+   44  find /etc/ -name default*
+   45  systemctl set-default multi-user.target 
+   46  vi /etc/default/grub 
+   47  df -h
+   48  fdisk -l
+   49  vgs
+   50  pvs
+   51  cfdisk /dev/sda
+   52  ls -l /dev/mapper/*
+   53  grub2-mkconfig -o /boot/grub2/grub.cfg 
+   54  lsblk
+   55  shutdown -h now
+   56  dnf repolist
+   57  cd /etc/yum.repos.d/
+
+
+## travou
+
+
+72  lsblk
+   73  ls -l /dev/mapper/*
+   74  blkid
+   75  vi /etc/fstab 
+   76  mount -a
+   77  cd /mnt/lvexam/
+   78  ll
+   79  systemctl daemon-reload 
+   80  man vdo
+   81  vdo create --name=vdo0 --device=/dev/sdb5 --vdoLogicalSize=4T
+   82  pvs
+   83  lvs
+   84  man lvextend 
+   85  #lvextend vg01/lvol01 /dev/sdk3
+   86  lsblk
+   87  vgs
+   88  lvextend -r -L +1G /dev/sdb5/vgexam-lvexam
+   89  udevadm settle 
+   90  ls -l /dev/mapper/*
+   91  lvextend -r -L +1G /dev/mapper/vgexam-lvexam
+   92  df -hT
+   93  vgs
+   94  vdo create --name=vdo0 --device=/dev/sdc --vdoLogicalSize=4T
+   95  pvcreate /dev/sdc
+   96  vdo create --name=vdo0 --device=/dev/sdc --vdoLogicalSize=4T --force
+   97  dnf install httpd
+   98  systemctl status httpd
+   99  echo "redhat tmnc" > /var/www/html/index.html
+  100  firewall-cmd --add-service=http --zone=public --permanent
+  101  firewall-cmd --reload 
+  102  curl localhost
+  103  mkdir -p /find/largefiles
+  104  find /etc -type f -size +4MB -exec cp {} /find/largefiles/ \;
+  105  find /etc -type f -size +4M -exec cp {} /find/largefiles/ \;
+  106  cd /find/largefiles/
+  107  ll
+  108  lsblk
+  109  cd /mnt/lvexam/
+  110  cd
+  111  touch if_arguments.sh
+  112  vi if_arguments.sh 
+  113  chmod +x if_arguments.sh 
+  114  ./if_arguments.sh 
+  115  vi if_arguments.sh 
+  116  ./if_arguments.sh 
+  117  vi if_arguments.sh 
+  118  ./if_arguments.sh 
+  119  vi if_arguments.sh 
+  120  for i in vikas harish john andrew; do  adduser $i; done
+  121  getent passwd
+  122  touch /etc/skel/welcome
+  123  find /etc/ -name login.conf
+  124  find /etc/ -name login*.conf
+  125  vi /etc/systemd/logind.conf
+  126  vi /etc/login.defs
+  127  groupadd indian
+  128  usermod -aG indian vikas 
+  129  usermod -aG indian harish
+  130  groupadd UK
+  131  usermod -aG UK jhon
+  132  usermod -aG UK john
+  133  usermod -aG UK andrew
+  134  mkdir /Indian
+  135  chown :Indian /Indian/
+  136  chown :indian /Indian/
+  137  chown vikas:indian /Indian/
+  138  ls -ld /Indian/
+  139  chmod g+rwx /Indian/
+  140  ls -ld /Indian/
+  141* chmod o-rwx /UK
+  142  ls -ld /Indian/
+  143  chown john:UK /UK
+  144  mkdir /UK
+  145  chown john:UK /UK
+  146  chown :UK /UK
+  147  chmod g+rwx,g-rwx /UK/
+  148  ls -ld /UK/
+  149  chmod g+rwx,o-rwx /UK/
+  150  ls -ld /UK/
+  151  chmod g+s /UK/
+  152  chmod u+t /UK/
+  153  ls -ld /UK/
+  154  chmod +t /UK/
+  155  ls -ld /UK/
+  156  cat /etc/crontab 
+  157  crontab -e
+  158  history
