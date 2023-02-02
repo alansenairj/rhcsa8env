@@ -1,11 +1,8 @@
 # RHCSA 8 Automated Practice Deployment
 _Powered by Ansible and Vagrant_ 
 
-## Windows/Fedora
-- If using Windows:
-- [Install the Latest Version of Vagrant](https://www.vagrantup.com/downloads.html)
-- [Install the Latest Version of Virtualbox and Virtual Box Extension Pack](https://www.virtualbox.org/wiki/Downloads)
-- Then install the following vagrant plugin via PowerShell as Administrator `vagrant plugin install vagrant-guest_ansible` 
+## Fedora
+
 - If using Fedora, run `dnf update -y` to update your system, then run the script below as root to install everything at once:
 ```
 dnf -y install wget git binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms libvirt libvirt-devel ruby-devel libxslt-devel libxml2-devel ; wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo ; mv virtualbox.repo /etc/yum.repos.d/virtualbox.repo ; dnf install -y VirtualBox-6.0 ; usermod -a -G vboxusers ${USER} ; /usr/lib/virtualbox/vboxdrv.sh setup ; dnf -y install vagrant ; dnf remove -y rubygem-fog-core ; vagrant plugin install vagrant-guest_ansible
