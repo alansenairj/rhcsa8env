@@ -55,6 +55,11 @@ You can also use the VirtualBox console to interact with the VMs or through a te
 
 There is a Repo/AppStream available to use from `http://repo.eight.example.com/BaseOS` and `http://repo.eight.example.com/AppStream`
 
+## create 2 disks in vbox media and attach it to srv1 vm
+sdb 8GB
+sdc 8GB
+
+
 ## Accessing the systems
 Remember to add the IP addresses to your local host file if you want to connect to the guest systems with the hostname.
 Username - vagrant
