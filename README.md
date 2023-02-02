@@ -52,6 +52,20 @@ systemctl stop packagekit; dnf -y install https://dl.fedoraproject.org/pub/epel/
 dnf -y install wget git binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms libvirt libvirt-devel ruby-devel libxslt-devel libxml2-devel ; wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo ; mv virtualbox.repo /etc/yum.repos.d/virtualbox.repo ; dnf install -y VirtualBox-6.0 ; usermod -a -G vboxusers ${USER} ; /usr/lib/virtualbox/vboxdrv.sh setup ; dnf -y install vagrant ; dnf remove -y rubygem-fog-core ; vagrant plugin install vagrant-guest_ansible
 ```
 
+
+#### configure vangrant network
+```
+
+sudo mkdir -p /etc/vbox
+sudo vi /etc/vbox/networks.conf
+
+* 192.168.55.0/24
+
+```
+
+
+
+
 ##### Once the above software is installed. Do the following if you're running the environment on Windows:
 1. Create a separate `~/bin` directory and `cd` to it using the same PowerShell/Terminal as Administrator/Root.  (The directory doesn't have to be ~/bin, it can be anything you want.)
 2. Use your browser of choice and navigate to https://github.com/rdbreak/rhcsa8env, press the green “Clone or download” button then the “Download ZIP” button. Or use Github Desktop (See below).
